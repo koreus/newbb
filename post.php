@@ -518,7 +518,7 @@ if (Request::getString('contents_preview', Request::getString('contents_preview'
         'meta'    => _MD_NEWBB_BY . ' ' . $p_name . ' ' . _MD_NEWBB_ON . ' ' . $p_date,
         'content' => $p_message,
     ];
-    $xoopsTpl->assign_by_ref('post_preview', $post_preview);
+    $xoopsTpl->assignByRef('post_preview', $post_preview);
 }
 
 if (Request::getString('contents_upload', null, 'POST') || Request::getString('contents_preview', null, 'POST')

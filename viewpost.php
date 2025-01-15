@@ -187,7 +187,7 @@ if (!empty($forum_id)) {
             'name' => $parent_forumObject->getVar('forum_name'),
         ];
         unset($parent_forumObject);
-        $xoopsTpl->assign_by_ref('parentforum', $parentforum);
+        $xoopsTpl->assignByRef('parentforum', $parentforum);
     }
     $xoopsTpl->assign('forum_name', $forumObject->getVar('forum_name'));
     $xoopsTpl->assign('forum_moderators', $forumObject->dispForumModerators());
@@ -439,7 +439,7 @@ if ('DESC' === $order) {
 }
 
 //$xoopsTpl->assign('viewmode_compact', ($viewmode=="compact")?1:0);
-$xoopsTpl->assign_by_ref('viewmode_options', $viewmode_options);
+$xoopsTpl->assignByRef('viewmode_options', $viewmode_options);
 $xoopsTpl->assign('menumode', $menumode);
 $xoopsTpl->assign('menumode_other', $menumode_other);
 

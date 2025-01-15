@@ -647,7 +647,7 @@ class TopicRenderer
         $since              = $this->vars['since'] ?? $this->config['since_default'];
         $selection['since'] = \newbbSinceSelectBox($since);
 
-        $xoopsTpl->assign_by_ref('selection', $selection);
+        $xoopsTpl->assignByRef('selection', $selection);
     }
 
     /**
@@ -660,7 +660,7 @@ class TopicRenderer
         $search['since']    = @$this->vars['since'];
         $search['searchin'] = 'both';
 
-        $xoopsTpl->assign_by_ref('search', $search);
+        $xoopsTpl->assignByRef('search', $search);
     }
 
     /**
@@ -689,7 +689,7 @@ class TopicRenderer
             $headers_data[$header]['title'] = $title;
             $headers_data[$header]['link']  = $this->page . '?' . \implode('&amp;', \array_merge($args, $_args));
         }
-        $xoopsTpl->assign_by_ref('headers', $headers_data);
+        $xoopsTpl->assignByRef('headers', $headers_data);
     }
 
     /**
@@ -713,7 +713,7 @@ class TopicRenderer
             $status[$link]['title'] = $title;
             $status[$link]['link']  = $this->page . '?' . \implode('&amp;', \array_merge($args, $_args));
         }
-        $xoopsTpl->assign_by_ref('filters', $status);
+        $xoopsTpl->assignByRef('filters', $status);
     }
 
     /**
@@ -761,7 +761,7 @@ class TopicRenderer
             $status[$id]['title'] = $type['type_name'];
             $status[$id]['link']  = $this->page . '?' . \implode('&amp;', \array_merge($args, $_args));
         }
-        $xoopsTpl->assign_by_ref('types', $status);
+        $xoopsTpl->assignByRef('types', $status);
     }
 
     /**
@@ -784,7 +784,7 @@ class TopicRenderer
         //$status['link'] = $this->page.(empty($this->vars['status']) ? '' : '?status='.$this->vars['status']);
         $status['link'] = $this->page . (empty($args) ? '' : '?' . \implode('&amp;', $args));
 
-        $xoopsTpl->assign_by_ref('current', $status);
+        $xoopsTpl->assignByRef('current', $status);
     }
 
     /**
@@ -866,7 +866,7 @@ class TopicRenderer
 
         if ($this->noperm) {
             if (\is_object($xoopsTpl)) {
-                $xoopsTpl->assign_by_ref('topics', $ret);
+                $xoopsTpl->assignByRef('topics', $ret);
 
                 return;
             }
@@ -900,7 +900,7 @@ class TopicRenderer
         $result = $this->handler->db->query($sql, $this->config['topics_per_page'], @$this->vars['start']);
         if (!$this->handler->db->isResultSet($result)) {
             if (\is_object($xoopsTpl)) {
-                $xoopsTpl->assign_by_ref('topics', $ret);
+                $xoopsTpl->assignByRef('topics', $ret);
 
                 return;
             }
@@ -1118,8 +1118,8 @@ class TopicRenderer
         }
 
         if (\is_object($xoopsTpl)) {
-            $xoopsTpl->assign_by_ref('sticky', $sticky);
-            $xoopsTpl->assign_by_ref('topics', $topics);
+            $xoopsTpl->assignByRef('sticky', $sticky);
+            $xoopsTpl->assignByRef('topics', $topics);
 
             return;
         }

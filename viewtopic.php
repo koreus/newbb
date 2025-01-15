@@ -468,14 +468,14 @@ if ($topicObject->getVar('approved') > 0) {
 }
 // END irmtfan add restore to viewtopic
 
-$xoopsTpl->assign_by_ref('admin_actions', $admin_actions);
+$xoopsTpl->assignByRef('admin_actions', $admin_actions);
 $xoopsTpl->assign('viewer_level', (int)($isAdmin ? 2 : is_object($GLOBALS['xoopsUser'])));
 
 if ($GLOBALS['xoopsModuleConfig']['show_permissiontable']) {
     //    /** var Newbb\PermissionHandler $permHandler */
     //    $permHandler      = \XoopsModules\Newbb\Helper::getInstance()->getHandler('Permission');
     $permission_table = $permHandler->getPermissionTable($forumObject, $topicObject->getVar('topic_status'), $isAdmin);
-    $xoopsTpl->assign_by_ref('permission_table', $permission_table);
+    $xoopsTpl->assignByRef('permission_table', $permission_table);
 }
 
 ///////////////////////////////
@@ -651,7 +651,7 @@ if (is_object($pollModuleHandler) && $pollModuleHandler->getVar('isactive')) {
                 'name'  => _MD_NEWBB_POLL_VIEWLOG,
             ];
 
-            $xoopsTpl->assign_by_ref('adminpoll_actions', $adminpoll_actions);
+            $xoopsTpl->assignByRef('adminpoll_actions', $adminpoll_actions);
         }
     }
     // END can add poll
@@ -742,7 +742,7 @@ $xoopsTpl->assign('topicstatus', $current_status);
 $xoopsTpl->assign('mode', $mode);
 $xoopsTpl->assign('status', $status);
 //$xoopsTpl->assign('viewmode_compact', ($viewmode=="compact")?1:0);
-$xoopsTpl->assign_by_ref('viewmode_options', $viewmode_options);
+$xoopsTpl->assignByRef('viewmode_options', $viewmode_options);
 unset($viewmode_options);
 $xoopsTpl->assign('menumode', $menumode);
 $xoopsTpl->assign('menumode_other', $menumode_other);

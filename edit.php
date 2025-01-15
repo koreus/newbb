@@ -166,7 +166,7 @@ foreach ($posts_contextObject as $post_contextObject) {
         'content' => $p_message,
     ];
 }
-$xoopsTpl->assign_by_ref('posts_context', $posts_context);
+$xoopsTpl->assignByRef('posts_context', $posts_context);
 // irmtfan move to footer.php
 require_once __DIR__ . '/footer.php';
 require_once $GLOBALS['xoops']->path('footer.php');

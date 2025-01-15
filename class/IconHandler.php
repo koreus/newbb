@@ -205,7 +205,7 @@ class IconHandler
      */
     public function render()
     {
-        //$this->template->assign_by_ref("image", $this->images);
+        //$this->template->assignByRef("image", $this->images);
         $this->template->assign($this->images);
 
         return \count($this->images);

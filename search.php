@@ -283,7 +283,7 @@ $select_forum = '<select class="form-control" name="forum[]" id="forum" size="5"
 $select_forum .= '<option value="all">' . _MD_NEWBB_SEARCHALLFORUMS . '</option>';
 $select_forum .= newbbForumSelectBox($forum);
 $select_forum .= '</select>';
-$xoopsTpl->assign_by_ref('forum_selection_box', $select_forum);
+$xoopsTpl->assignByRef('forum_selection_box', $select_forum);
 
 /* searchin */
 $searchin_select = '';
@@ -342,7 +342,7 @@ $xoopsTpl->assign('selectlength_select', $selectlength);
 // irmtfan get since from the user for selction box
 $since        = Request::getInt('since', $GLOBALS['xoopsModuleConfig']['since_default']);
 $select_since = newbbSinceSelectBox($since);
-$xoopsTpl->assign_by_ref('since_selection_box', $select_since);
+$xoopsTpl->assignByRef('since_selection_box', $select_since);
 
 if ($xoopsConfigSearch['keyword_min'] > 0) {
     $xoopsTpl->assign('search_rule', sprintf(_SR_KEYIGNORE, $xoopsConfigSearch['keyword_min']));

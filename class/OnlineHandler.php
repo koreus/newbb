@@ -154,7 +154,7 @@ class OnlineHandler
             $online['users'][] = $user;
         }
 
-        $xoopsTpl->assign_by_ref('online', $online);
+        $xoopsTpl->assignByRef('online', $online);
     }
 
     /**

@@ -225,8 +225,8 @@ foreach (array_keys($categories) as $id) {
 }
 
 unset($categories, $forums_array, $forumsByCat);
-$xoopsTpl->assign_by_ref('category_icon', $category_icon);
-$xoopsTpl->assign_by_ref('categories', $category_array);
+$xoopsTpl->assignByRef('category_icon', $category_icon);
+$xoopsTpl->assignByRef('categories', $category_array);
 $xoopsTpl->assign('notifyicon', $category_icon);
 
 $xoopsTpl->assign(
@@ -249,7 +249,7 @@ if (!empty($GLOBALS['xoopsModuleConfig']['statistik_enabled'])) {
         $userstats['lastvisit']   = sprintf(_MD_NEWBB_USER_LASTVISIT, formatTimestamp($last_visit, 's')); // irmtfan should be removed because it is for anon users too
         $userstats['lastpost']    = empty($userstats_row['user_lastpost']) ? _MD_NEWBB_USER_NOLASTPOST : sprintf(_MD_NEWBB_USER_LASTPOST, formatTimestamp($userstats_row['user_lastpost'], 's'));
     }
-    $xoopsTpl->assign_by_ref('userstats', $userstats);
+    $xoopsTpl->assignByRef('userstats', $userstats);
     // irmtfan add lastvisit smarty variable for all users
     $xoopsTpl->assign('lastvisit', sprintf(_MD_NEWBB_USER_LASTVISIT, formatTimestamp($last_visit, 'l')));
     $xoopsTpl->assign('currenttime', sprintf(_MD_NEWBB_TIMENOW, formatTimestamp(time(), 'm')));
@@ -259,7 +259,7 @@ if (!empty($GLOBALS['xoopsModuleConfig']['statistik_enabled'])) {
 ///** @var Newbb\StatsHandler $statsHandler */
 //$statsHandler = \XoopsModules\Newbb\Helper::getInstance()->getHandler('Stats');
 $stats = $statsHandler->getStats(array_merge([0], $forums_available));
-$xoopsTpl->assign_by_ref('stats', $stats);
+$xoopsTpl->assignByRef('stats', $stats);
 $xoopsTpl->assign('subforum_display', $GLOBALS['xoopsModuleConfig']['subforum_display']);
 $xoopsTpl->assign('mark_read', XOOPS_URL . '/modules/' . $xoopsModule->getVar('dirname', 'n') . '/index.php?mark_read=1');
 $xoopsTpl->assign('mark_unread', XOOPS_URL . '/modules/' . $xoopsModule->getVar('dirname', 'n') . '/index.php?mark_read=2');
