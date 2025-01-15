@@ -176,7 +176,7 @@ if (!empty($GLOBALS['xoopsModuleConfig']['rss_enable'])) {
         'xoops_module_header',
         '
     <link rel="alternate" type="application/rss+xml" title="' . $xoopsModule->getVar('name') . '-' . $forumObject->getVar('forum_name') . '" href="' . XOOPS_URL . '/modules/' . $xoopsModule->getVar('dirname') . '/rss.php?f=' . $forumObject->getVar('forum_id') . '" >
-    ' . @$xoopsTpl->get_template_vars('xoops_module_header')
+    ' . @$xoopsTpl->getTemplateVars('xoops_module_header')
     );
 }
 
@@ -251,7 +251,7 @@ if ($topicHandler->getPermission($forumObject, $topicObject->getVar('topic_statu
     }
 }
 // irmtfan for backward compatibility assign forum_post_or_register smarty again.
-$xoopsTpl->assign('forum_post_or_register', @$xoopsTpl->get_template_vars('forum_post') . @$xoopsTpl->get_template_vars('forum_register') . @$xoopsTpl->get_template_vars('topic_lock'));
+$xoopsTpl->assign('forum_post_or_register', @$xoopsTpl->getTemplateVars('forum_post') . @$xoopsTpl->getTemplateVars('forum_register') . @$xoopsTpl->getTemplateVars('topic_lock'));
 
 if ($topicHandler->getPermission($forumObject, $topicObject->getVar('topic_status'), 'reply')) {
     $xoopsTpl->assign('forum_reply', '<a href="' . XOOPS_URL . '/modules/' . $xoopsModule->getVar('dirname', 'n') . '/reply.php?topic_id=' . $topic_id . '"> ' . $t_reply . '</a>');

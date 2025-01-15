@@ -74,7 +74,7 @@ if (!empty($GLOBALS['xoopsModuleConfig']['rss_enable'])) {
         'xoops_module_header',
         '
     <link rel="alternate" type="application/xml+rss" title="' . $xoopsModule->getVar('name') . '" href="' . XOOPS_URL . '/modules/' . $xoopsModule->getVar('dirname', 'n') . '/rss.php" >
-    ' . @$xoopsTpl->get_template_vars('xoops_module_header')
+    ' . @$xoopsTpl->getTemplateVars('xoops_module_header')
     );
 }
 $xoopsTpl->assign('xoops_pagetitle', $xoops_pagetitle);

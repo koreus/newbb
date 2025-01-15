@@ -200,7 +200,7 @@ if (!empty($forum_id)) {
             'xoops_module_header',
             '
             <link rel="alternate" type="application/xml+rss" title="' . $xoopsModule->getVar('name') . '-' . $forumObject->getVar('forum_name') . '" href="' . XOOPS_URL . '/modules/' . $xoopsModule->getVar('dirname') . '/rss.php?f=' . $forum_id . '" >
-            ' . @$xoopsTpl->get_template_vars('xoops_module_header')
+            ' . @$xoopsTpl->getTemplateVars('xoops_module_header')
         );
     }
 } elseif (!empty($GLOBALS['xoopsModuleConfig']['rss_enable'])) {
@@ -208,7 +208,7 @@ if (!empty($forum_id)) {
         'xoops_module_header',
         '
         <link rel="alternate" type="application/xml+rss" title="' . $xoopsModule->getVar('name') . '" href="' . XOOPS_URL . '/modules/' . $xoopsModule->getVar('dirname') . '/rss.php" >
-    ' . @$xoopsTpl->get_template_vars('xoops_module_header')
+    ' . @$xoopsTpl->getTemplateVars('xoops_module_header')
     );
 }
 // irmtfan remove and move to footer.php
