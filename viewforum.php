@@ -151,7 +151,7 @@ if ($forumHandler->getPermission($forumObject, 'post')) {
     }
 }
 $parentforum = $forumHandler->getParents($forumObject);
-$xoopsTpl->assign_by_ref('parentforum', $parentforum);
+$xoopsTpl->assignByRef('parentforum', $parentforum);
 
 $criteria = new \CriteriaCompo(new \Criteria('parent_forum', $forum_id));
 $criteria->add(new \Criteria('forum_id', '(' . implode(', ', $forumHandler->getIdsByPermission('access')) . ')', 'IN'));
@@ -162,7 +162,7 @@ if ($forums) {
     $subforum_array = $forumHandler->display($forums, $GLOBALS['xoopsModuleConfig']['length_title_index'], $GLOBALS['xoopsModuleConfig']['count_subforum']);
     $subforum       = array_values($subforum_array[$forum_id]);
     unset($subforum_array);
-    $xoopsTpl->assign_by_ref('subforum', $subforum);
+    $xoopsTpl->assignByRef('subforum', $subforum);
 }
 
 //$categoryHandler = \XoopsModules\Newbb\Helper::getInstance()->getHandler('Category');
@@ -195,7 +195,7 @@ foreach ($sel_sort_array as $sort_k => $sort_v) {
 }
 $forum_selection_sort .= '</select>';
 
-$xoopsTpl->assign_by_ref('forum_selection_sort', $forum_selection_sort);
+$xoopsTpl->assignByRef('forum_selection_sort', $forum_selection_sort);
 
 $order                 = (!Request::getString('order', '', 'GET')
                           || 'ASC' !== Request::getString('order', '', 'GET')) ? 'DESC' : 'ASC';
@@ -204,12 +204,12 @@ $forum_selection_order .= '<option value="ASC"' . (('ASC' === $order) ? ' select
 $forum_selection_order .= '<option value="DESC"' . (('DESC' === $order) ? ' selected' : '') . '>' . _MD_NEWBB_DESCENDING . '</option>';
 $forum_selection_order .= '</select>';
 
-$xoopsTpl->assign_by_ref('forum_selection_order', $forum_selection_order);
+$xoopsTpl->assignByRef('forum_selection_order', $forum_selection_order);
 
 $since = Request::getInt('since', $GLOBALS['xoopsModuleConfig']['since_default'], 'GET');
 require_once __DIR__ . '/include/functions.time.php';
 $forum_selection_since = newbbSinceSelectBox($since);
-$xoopsTpl->assign_by_ref('forum_selection_since', $forum_selection_since);
+$xoopsTpl->assignByRef('forum_selection_since', $forum_selection_since);
 
 $query_sort = $query_array;
 unset($query_sort['sort'], $query_sort['order']);
@@ -246,7 +246,7 @@ $criteria_topic['excerpt'] = $GLOBALS['xoopsModuleConfig']['post_excerpt'];
 
 [$allTopics, $sticky] = $forumHandler->getAllTopics($forumObject, $criteria_topic);
 
-$xoopsTpl->assign_by_ref('topics', $allTopics);
+$xoopsTpl->assignByRef('topics', $allTopics);
 $xoopsTpl->assign('sticky', $sticky);
 $xoopsTpl->assign('rating_enable', $GLOBALS['xoopsModuleConfig']['rating_enabled']);
 $xoopsTpl->assign('img_newposts', newbbDisplayImage('topic_new', _MD_NEWBB_NEWPOSTS));
@@ -287,7 +287,7 @@ if ($type > 0) {
     require_once __DIR__ . '/include/functions.topic.php';
     $xoopsTpl->assign('forum_topictype', getTopicTitle('', $types[$type]['type_name'], $types[$type]['type_color']));
 }
-$xoopsTpl->assign_by_ref('typeOptions', $typeOptions);
+$xoopsTpl->assignByRef('typeOptions', $typeOptions);
 
 $query_status = $query_array;
 unset($query_status['status']);
@@ -353,7 +353,7 @@ if ($GLOBALS['xoopsModuleConfig']['show_permissiontable']) {
     //    /** var Newbb\PermissionHandler $permHandler */
     //    $permHandler      = \XoopsModules\Newbb\Helper::getInstance()->getHandler('Permission');
     $permission_table = $permHandler->getPermissionTable($forum_id, false, $isAdmin);
-    $xoopsTpl->assign_by_ref('permission_table', $permission_table);
+    $xoopsTpl->assignByRef('permission_table', $permission_table);
     unset($permission_table);
 }
 
