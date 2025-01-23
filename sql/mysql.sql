@@ -5,7 +5,7 @@ CREATE TABLE `newbb_archive` (
   `post_id`   INT(10) UNSIGNED NOT NULL DEFAULT '0',
   `post_text` TEXT             NOT NULL
 )
-  ENGINE = MyISAM;
+  ENGINE = InnoDB;
 
 CREATE TABLE `newbb_attachments` (
   `attach_id`   INT(8) UNSIGNED     NOT NULL AUTO_INCREMENT,
@@ -20,7 +20,7 @@ CREATE TABLE `newbb_attachments` (
   PRIMARY KEY (`attach_id`),
   KEY `post_id`    (`post_id`)
 )
-  ENGINE = MyISAM;
+  ENGINE = InnoDB;
 
 CREATE TABLE `newbb_categories` (
   `cat_id`          SMALLINT(3) UNSIGNED NOT NULL AUTO_INCREMENT,
@@ -33,7 +33,7 @@ CREATE TABLE `newbb_categories` (
   PRIMARY KEY (`cat_id`),
   KEY `cat_order`  (`cat_order`)
 )
-  ENGINE = MyISAM;
+  ENGINE = InnoDB;
 
 CREATE TABLE `newbb_digest` (
   `digest_id`      INT(8) UNSIGNED  NOT NULL AUTO_INCREMENT,
@@ -43,7 +43,7 @@ CREATE TABLE `newbb_digest` (
   PRIMARY KEY (`digest_id`),
   KEY `digest_time` (`digest_time`)
 )
-  ENGINE = MyISAM;
+  ENGINE = InnoDB;
 
 CREATE TABLE `newbb_forums` (
   `forum_id`           SMALLINT(4) UNSIGNED NOT NULL AUTO_INCREMENT,
@@ -67,7 +67,7 @@ CREATE TABLE `newbb_forums` (
   KEY `forum_order`    (`forum_order`),
   KEY `cat_id`        (`cat_id`)
 )
-  ENGINE = MyISAM;
+  ENGINE = InnoDB;
 
 CREATE TABLE `newbb_moderates` (
   `mod_id`    INT(10) UNSIGNED     NOT NULL AUTO_INCREMENT,
@@ -83,7 +83,7 @@ CREATE TABLE `newbb_moderates` (
   KEY `mod_end`  (`mod_end`),
   KEY `forum_id`  (`forum_id`)
 )
-  ENGINE = MyISAM;
+  ENGINE = InnoDB;
 
 CREATE TABLE `newbb_online` (
   `online_forum`   INT(10) UNSIGNED NOT NULL DEFAULT '0',
@@ -97,7 +97,7 @@ CREATE TABLE `newbb_online` (
   KEY `online_topic`  (`online_topic`),
   KEY `online_updated`  (`online_updated`)
 )
-  ENGINE = MyISAM;
+  ENGINE = InnoDB;
 
 CREATE TABLE `newbb_posts` (
   `post_id`       INT(10) UNSIGNED     NOT NULL AUTO_INCREMENT,
@@ -129,7 +129,7 @@ CREATE TABLE `newbb_posts` (
   KEY `forumid_approved_postid`  (`forum_id`, `approved`, `post_id`),
   FULLTEXT KEY `search`    (`subject`(64))
 )
-  ENGINE = MyISAM;
+  ENGINE = InnoDB;
 
 CREATE TABLE `newbb_posts_text` (
   `post_id`   INT(10) UNSIGNED    NOT NULL DEFAULT '0',
@@ -144,7 +144,7 @@ CREATE TABLE `newbb_posts_text` (
   PRIMARY KEY (`post_id`),
   FULLTEXT KEY `search` (`post_text`)
 )
-  ENGINE = MyISAM;
+  ENGINE = InnoDB;
 
 CREATE TABLE `newbb_reads_forum` (
   `read_id`   INT(10) UNSIGNED     NOT NULL AUTO_INCREMENT,
@@ -159,7 +159,7 @@ CREATE TABLE `newbb_reads_forum` (
   KEY `post_id`    (`post_id`),
   KEY `read_item_uid`    (`read_item`, `uid`)
 )
-  ENGINE = MyISAM;
+  ENGINE = InnoDB;
 
 CREATE TABLE `newbb_reads_topic` (
   `read_id`   INT(10) UNSIGNED NOT NULL AUTO_INCREMENT,
@@ -174,7 +174,7 @@ CREATE TABLE `newbb_reads_topic` (
   KEY `post_id`    (`post_id`),
   KEY `read_item_uid`    (`read_item`, `uid`)
 )
-  ENGINE = MyISAM;
+  ENGINE = InnoDB;
 
 CREATE TABLE `newbb_report` (
   `report_id`     INT(8) UNSIGNED     NOT NULL AUTO_INCREMENT,
@@ -189,7 +189,7 @@ CREATE TABLE `newbb_report` (
   PRIMARY KEY (`report_id`),
   KEY `post_id`    (`post_id`)
 )
-  ENGINE = MyISAM;
+  ENGINE = InnoDB;
 
 CREATE TABLE `newbb_topics` (
   `topic_id`           INT(8) UNSIGNED       NOT NULL AUTO_INCREMENT,
@@ -225,7 +225,7 @@ CREATE TABLE `newbb_topics` (
   KEY `approved`    (`approved`),
   KEY `type_id`    (`type_id`)
 )
-  ENGINE = MyISAM;
+  ENGINE = InnoDB;
 
 CREATE TABLE `newbb_votedata` (
   `ratingid`        INT(11) UNSIGNED    NOT NULL AUTO_INCREMENT,
@@ -240,7 +240,7 @@ CREATE TABLE `newbb_votedata` (
   KEY `ratinghostname`  (`ratinghostname`),
   KEY `topic_id`    (`topic_id`)
 )
-  ENGINE = MyISAM;
+  ENGINE = InnoDB;
 
 CREATE TABLE `newbb_type` (
   `type_id`          SMALLINT(4) UNSIGNED NOT NULL AUTO_INCREMENT,
@@ -250,7 +250,7 @@ CREATE TABLE `newbb_type` (
 
   PRIMARY KEY (`type_id`)
 )
-  ENGINE = MyISAM;
+  ENGINE = InnoDB;
 
 CREATE TABLE `newbb_type_forum` (
   `tf_id`      MEDIUMINT(4) UNSIGNED NOT NULL AUTO_INCREMENT,
@@ -262,7 +262,7 @@ CREATE TABLE `newbb_type_forum` (
   KEY `forum_id`    (`forum_id`),
   KEY `type_order`    (`type_order`)
 )
-  ENGINE = MyISAM;
+  ENGINE = InnoDB;
 
 CREATE TABLE `newbb_user_stats` (
   `uid`           MEDIUMINT(8) UNSIGNED NOT NULL DEFAULT '0',
@@ -273,7 +273,7 @@ CREATE TABLE `newbb_user_stats` (
 
   UNIQUE KEY (`uid`)
 )
-  ENGINE = MyISAM;
+  ENGINE = InnoDB;
 
 CREATE TABLE `newbb_stats` (
   `stats_id`     SMALLINT(4)          NOT NULL DEFAULT '0',
@@ -287,4 +287,4 @@ CREATE TABLE `newbb_stats` (
   KEY `stats_id`    (`stats_id`),
   KEY `stats_type`    (`stats_type`, `stats_period`)
 )
-  ENGINE = MyISAM;
+  ENGINE = InnoDB;
